@@ -6,11 +6,13 @@ metadata:
     kubernetes.io/ingress.class: "nginx"
 spec:
   rules:
-    - host: app.com
+    - host: app.com # has to be a valid domain address
       http:
+      # paths means the url path
         paths:
           - path: /
             backend:
+            # name and port should coresponse to the service name of the internal service under metadata 
               serviceName: my-service
               servicePort: 8080
 
